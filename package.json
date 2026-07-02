@@ -15,7 +15,7 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "xlsx": "^0.18.5",
-    "youtubei.js": "^16.0.1",
+    "youtubei.js": "^17.2.0",
     "ytpl": "^2.3.0"
   },
   "devDependencies": {
