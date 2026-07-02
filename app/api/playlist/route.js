@@ -36,13 +36,14 @@ export async function GET(request) {
 
     console.log(`Total videos fetched: ${allVideos.length}`);
 
+    console.dir(allVideos[0], { depth: null });
+
     // 🧾 Excel data
     const data = allVideos.map((video, index) => ({
       "Sr.No.": index + 1,
-      Title: video.title?.toString() || "",
-      URL: `https://www.youtube.com/watch?v=${video.id}`,
+      Title: video.metadata?.title?.text || "",
+      URL: `https://www.youtube.com/watch?v=${video.content_id}`,
     }));
-
     const worksheet = XLSX.utils.json_to_sheet(data);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Playlist");
